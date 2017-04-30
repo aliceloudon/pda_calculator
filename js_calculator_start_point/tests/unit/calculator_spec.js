@@ -60,6 +60,12 @@ describe('calculator', function () {
     assert.equal(null, calculator.previousOperator)
   })
 
+  it('records what the previous operator was if an operator other than equals is clicked', function(){
+    calculator.previousOperator = '+'
+    calculator.operatorClick('-')
+    assert.equal('-', calculator.previousOperator)
+  })
+
   // calculator.operatorClick()
   
   // calculator.clearClick()
