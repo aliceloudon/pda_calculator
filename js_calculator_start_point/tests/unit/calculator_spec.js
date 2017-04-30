@@ -21,8 +21,11 @@ describe('calculator', function () {
     assert.equal(-1, calculator.runningTotal)
   })
   
-
-  // calculator.multiply()
+  it('can multiply', function(){
+    calculator.previousTotal = 1
+    calculator.multiply(2)
+    assert.equal(2, calculator.runningTotal)
+  })
   
   // calculator.divide()
   
