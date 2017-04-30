@@ -28,7 +28,13 @@ describe('calculator', function () {
   })
   
   // calculator.divide()
-  
+  it('can divide', function(){
+    calculator.previousTotal = 4
+    calculator.divide(2)
+    assert.equal(2, calculator.runningTotal)
+  })
+
+
   // calculator.numberClick()
   
   // calculator.operatorClick()
