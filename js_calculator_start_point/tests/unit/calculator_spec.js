@@ -34,6 +34,13 @@ describe('calculator', function () {
     assert.equal(2, calculator.runningTotal)
   })
 
+  it('clears running total when number is clicked', function(){
+    calculator.add(1)
+    calculator.numberClick(3)
+    assert.equal(3, calculator.runningTotal)
+  })
+
+  
 
   // calculator.numberClick()
   
