@@ -46,8 +46,20 @@ describe('calculator', function () {
     assert.equal(false, calculator.newTotal)
   })
 
-  // calculator.numberClick()
+  // it('performs operation for operator clicked', function(){
+  //   calculator.runningTotal = 2
+  //   calculator.operatorClick('+')
+  //   console.log(calculator.previousOperator)
+  //   console.log(calculator.previousTotal)
+  //   assert.equal(2, calculator.runningTotal)
+  // })
   
+  it('clears the previous operator if the equals button is clicked', function(){
+    calculator.previousOperator = '+'
+    calculator.operatorClick('=')
+    assert.equal(null, calculator.previousOperator)
+  })
+
   // calculator.operatorClick()
   
   // calculator.clearClick()
