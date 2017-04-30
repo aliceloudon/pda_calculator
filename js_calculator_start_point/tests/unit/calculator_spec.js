@@ -40,7 +40,11 @@ describe('calculator', function () {
     assert.equal(3, calculator.runningTotal)
   })
 
-  
+  it('sets newTotal flag to false when number is clicked', function(){
+    calculator.add(1)
+    calculator.numberClick(3)
+    assert.equal(false, calculator.newTotal)
+  })
 
   // calculator.numberClick()
   
