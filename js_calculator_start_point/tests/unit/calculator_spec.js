@@ -66,7 +66,17 @@ describe('calculator', function () {
     assert.equal('-', calculator.previousOperator)
   })
 
-  // calculator.operatorClick()
+  it('on operator click, replaces the previous total with the current running total', function(){
+    this.previousTotal = 10
+    calculator.operatorClick('+')
+    assert.equal(0, calculator.runningTotal)
+  })
+
+  it('on operator click, flags that a new total has been calculated', function(){
+    calculator.operatorClick('+')
+    assert.equal(true, calculator.newTotal)
+  })
+
   
   // calculator.clearClick()
 
