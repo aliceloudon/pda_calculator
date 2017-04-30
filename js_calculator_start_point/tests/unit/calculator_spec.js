@@ -27,15 +27,14 @@ describe('calculator', function () {
     assert.equal(2, calculator.runningTotal)
   })
   
-  // calculator.divide()
   it('can divide', function(){
     calculator.previousTotal = 4
     calculator.divide(2)
     assert.equal(2, calculator.runningTotal)
   })
 
-  it('clears running total when number is clicked', function(){
-    calculator.add(1)
+  it('clears and updates running total when number is clicked', function(){
+    calculator.runningTotal = 5
     calculator.numberClick(3)
     assert.equal(3, calculator.runningTotal)
   })
@@ -45,6 +44,16 @@ describe('calculator', function () {
     calculator.numberClick(3)
     assert.equal(false, calculator.newTotal)
   })
+
+  it('on operator click, performs the operation for the previous operator', function(){
+    calculator.previousTotal = 10
+    calculator.previousOperator = '-'
+    calculator.runningTotal = 3
+    calculator.operatorClick('+')
+    assert.equal(7, calculator.runningTotal)
+  })
+
+
 
   // it('performs operation for operator clicked', function(){
   //   calculator.runningTotal = 2
@@ -94,11 +103,5 @@ describe('calculator', function () {
     calculator.clearClick()
     assert.equal(null, calculator.previousTotal)
   })
-
-
-  // calculator.previousOperator = '='
-  // calculator.previousTotal = 2
-  // calculator.clearClick()
-  // calculator.clearClick()
 
 });
