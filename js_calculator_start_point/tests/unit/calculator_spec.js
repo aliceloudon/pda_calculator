@@ -77,7 +77,16 @@ describe('calculator', function () {
     assert.equal(true, calculator.newTotal)
   })
 
+  it('clears runningTotal when clearClick is called', function(){
+    calculator.runningTotal = 10
+    calculator.clearClick()
+    assert.equal(0, calculator.runningTotal)
+  })
   
+
+  // calculator.previousOperator = '='
+  // calculator.previousTotal = 2
+  // calculator.clearClick()
   // calculator.clearClick()
 
 });
