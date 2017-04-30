@@ -89,6 +89,12 @@ describe('calculator', function () {
     assert.equal(null, calculator.previousOperator)
   })
     
+  it('sets previousTotal to null when clearClick is called', function(){
+    calculator.previousTotal = 10
+    calculator.clearClick()
+    assert.equal(null, calculator.previousTotal)
+  })
+
 
   // calculator.previousOperator = '='
   // calculator.previousTotal = 2
