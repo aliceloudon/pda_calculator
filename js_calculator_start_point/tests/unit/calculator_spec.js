@@ -12,25 +12,33 @@ describe('calculator', function () {
   })
 
   it('can add', function(){
-    calculator.add(1)
-    assert.equal(1, calculator.runningTotal)
+    calculator.previousTotal = 1
+    calculator.add(4)
+    assert.equal(5, calculator.runningTotal)
   })
 
   it('can subtract', function(){
-    calculator.subtract(1)
-    assert.equal(-1, calculator.runningTotal)
+    calculator.previousTotal = 7
+    calculator.subtract(4)
+    assert.equal(3, calculator.runningTotal)
   })
   
   it('can multiply', function(){
-    calculator.previousTotal = 1
-    calculator.multiply(2)
-    assert.equal(2, calculator.runningTotal)
+    calculator.previousTotal = 3
+    calculator.multiply(5)
+    assert.equal(15, calculator.runningTotal)
   })
   
   it('can divide', function(){
-    calculator.previousTotal = 4
-    calculator.divide(2)
-    assert.equal(2, calculator.runningTotal)
+    calculator.previousTotal = 21
+    calculator.divide(7)
+    assert.equal(3, calculator.runningTotal)
+  })
+
+  it('concatenates multiple number button clicks', function(){
+    calculator.numberClick(5)
+    calculator.numberClick(2)
+    assert.equal(52, calculator.runningTotal)
   })
 
   it('clears and updates running total when number is clicked', function(){
@@ -52,24 +60,14 @@ describe('calculator', function () {
     calculator.operatorClick('+')
     assert.equal(7, calculator.runningTotal)
   })
-
-
-
-  // it('performs operation for operator clicked', function(){
-  //   calculator.runningTotal = 2
-  //   calculator.operatorClick('+')
-  //   console.log(calculator.previousOperator)
-  //   console.log(calculator.previousTotal)
-  //   assert.equal(2, calculator.runningTotal)
-  // })
   
-  it('clears the previous operator if the equals button is clicked', function(){
+  it('on operator click, clears the previous operator if the equals button is clicked', function(){
     calculator.previousOperator = '+'
     calculator.operatorClick('=')
     assert.equal(null, calculator.previousOperator)
   })
 
-  it('records what the previous operator was if an operator other than equals is clicked', function(){
+  it('on operator click, records what the previous operator was if an operator other than equals is clicked', function(){
     calculator.previousOperator = '+'
     calculator.operatorClick('-')
     assert.equal('-', calculator.previousOperator)
